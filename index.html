@@ -3,19 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <title>Weekly Summary Card</title>
-   <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <h1>Weekly Summary</h1>
+  <h1 id="weeklySummaryHeading">Weekly Summary</h1>
 
-  <div class="summary-card" id="summaryCard">
+  <div class="summary-card" id="summaryCard" role="region" aria-labelledby="weeklySummaryHeading" aria-describedby="summaryDescription">
+    <p id="summaryDescription" class="visually-hidden">
+      This card displays a summary of your check-ins for the current week. Use the refresh button to update the list.
+    </p>
     <h2>This Week's Check-Ins</h2>
-    <div id="summaryList"></div>
+    <div id="summaryList" aria-live="polite" aria-label="List of weekly check-ins"></div>
   </div>
 
-  <button class="refresh-btn" onclick="renderSummary()">Refresh Summary</button>
+  <button class="refresh-btn" onclick="renderSummary()" aria-label="Refresh the weekly summary card">Refresh Summary</button>
 
   <script src="script.js"></script>
 </body>
 </html>
-
